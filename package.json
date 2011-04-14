@@ -1,7 +1,7 @@
 {
   "name": "domready",
   "description": "bullet proof DOM ready method",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "homepage": "https://github.com/ded/domready",
   "authors": ["Dustin Diaz <@ded>"],
   "repository": {
