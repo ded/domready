@@ -1,4 +1,4 @@
-!function (document) {
+!function (doc) {
   var loaded = 0, fns = [], ol,
       testEl = doc.createElement('a'),
       domContentLoaded = 'DOMContentLoaded', readyState = 'readyState',
