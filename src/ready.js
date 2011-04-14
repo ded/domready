@@ -43,7 +43,7 @@
         }();
     } :
     function (fn) {
-      re.test(doc[readyState]) ? fn() : again(fn);
+      /^i|c/.test(doc[readyState]) ? fn() : again(fn);
     };
 
     (typeof module !== 'undefined') && module.exports ?
