@@ -1,7 +1,7 @@
 require('../build/smoosh').config({
   "JAVASCRIPT": {
     "DIST_DIR": "./",
-    "script": ['./src/ready.js']
+    "ready": ['./src/ready.js']
   },
   "JSHINT_OPTS": {
     "boss": true,
