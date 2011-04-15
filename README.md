@@ -8,11 +8,12 @@ It's easy. Works like this:
 
 Browser support
 ---------------
-IE6,7,8,9
-Firefox 2,3,4
-Safari 3,4,5
-Chrome 1-10
-Opera
+
+  * IE6,7,8,9
+  * Firefox 2,3,4
+  * Safari 3,4,5
+  * Chrome 1-10
+  * Opera
 
 Building
 --------
