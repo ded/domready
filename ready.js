@@ -8,7 +8,7 @@
   doc.addEventListener && doc.addEventListener(domContentLoaded, function fn() {
     doc.removeEventListener(domContentLoaded, fn, false);
     doc[readyState] = "complete";
-  }, f);
+  }, false);
   doc[readyState] = "loading";
 
   function again(fn) {
