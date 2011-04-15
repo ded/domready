@@ -4,13 +4,13 @@
       domContentLoaded = 'DOMContentLoaded', readyState = 'readyState',
       onreadystatechange = 'onreadystatechange';
 
-  if (!doc[readyState] && doc.addEventListener) {
-    doc.addEventListener(domContentLoaded, function fn() {
-      doc.removeEventListener(domContentLoaded, fn, false);
-      doc[readyState] = "complete";
-    }, f);
-    doc[readyState] = "loading";
-  }
+
+  doc.addEventListener && doc.addEventListener(domContentLoaded, function fn() {
+    doc.removeEventListener(domContentLoaded, fn, false);
+    doc[readyState] = "complete";
+  }, f);
+  doc[readyState] = "loading";
+
   function again(fn) {
     setTimeout(function() {
       domReady(fn);
@@ -24,6 +24,7 @@
       for (var i = 0, l = fns.length; i < l; i++) {
         fns[i]();
       }
+      testEl = null;
     }();
   }));
 
