@@ -1,31 +1,28 @@
 !function (doc) {
-  var loaded = 0, fns = [], ol,
+  var loaded = 0, fns = [], ol, f = false,
       testEl = doc.createElement('a'),
       domContentLoaded = 'DOMContentLoaded', readyState = 'readyState',
       onreadystatechange = 'onreadystatechange';
 
-
+  function flush() {
+    loaded = 1;
+    for (var i = 0, l = fns.length; i < l; i++) {
+      fns[i]();
+    }
+    testEl = null;
+  }
   doc.addEventListener && doc.addEventListener(domContentLoaded, function fn() {
-    doc.removeEventListener(domContentLoaded, fn, false);
     doc[readyState] = "complete";
-  }, false);
+    doc.removeEventListener(domContentLoaded, fn, f);
+    flush();
+  }, f);
   doc[readyState] = "loading";
 
-  function again(fn) {
-    setTimeout(function() {
-      domReady(fn);
-    }, 50);
-  }
-
   testEl.doScroll && doc.attachEvent(onreadystatechange, (ol = function ol() {
-    /^c/.test(doc[readyState]) &&
-    (loaded = 1) &&
-    !doc.detachEvent(onreadystatechange, ol) && !function () {
-      for (var i = 0, l = fns.length; i < l; i++) {
-        fns[i]();
-      }
-      testEl = null;
-    }();
+    if (/^c/.test(doc[readyState])) {
+      doc.detachEvent(onreadystatechange, ol);
+      flush();
+    }
   }));
 
   var domReady = testEl.doScroll ?
@@ -38,13 +35,15 @@
           try {
             testEl.doScroll('left');
           } catch (e) {
-            return again(fn);
+            return setTimeout(function() {
+              domReady(fn);
+            }, 50);
           }
           fn();
         }();
     } :
     function (fn) {
-      /^i|c/.test(doc[readyState]) ? fn() : again(fn);
+      loaded ? fn() : fns.push(fn);
     };
 
     (typeof module !== 'undefined') && module.exports ?
