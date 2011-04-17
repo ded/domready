@@ -16,7 +16,7 @@
     doc.removeEventListener(domContentLoaded, fn, f);
     flush();
   }, f);
-  doc[readyState] = "loading";
+
 
   testEl.doScroll && doc.attachEvent(onreadystatechange, (ol = function ol() {
     if (/^c/.test(doc[readyState])) {
