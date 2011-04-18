@@ -1,7 +1,8 @@
 !function (doc) {
   var loaded = 0, fns = [], ol, f = false,
       testEl = doc.createElement('a'),
-      domContentLoaded = 'DOMContentLoaded', readyState = 'readyState',
+      domContentLoaded = 'DOMContentLoaded',
+      addEventListener = 'addEventListener',
       onreadystatechange = 'onreadystatechange';
 
   function flush() {
@@ -11,15 +12,14 @@
     }
     testEl = null;
   }
-  doc.addEventListener && doc.addEventListener(domContentLoaded, function fn() {
-    doc[readyState] = "complete";
+  doc[addEventListener] && doc[addEventListener](domContentLoaded, function fn() {
     doc.removeEventListener(domContentLoaded, fn, f);
     flush();
   }, f);
 
 
   testEl.doScroll && doc.attachEvent(onreadystatechange, (ol = function ol() {
-    if (/^c/.test(doc[readyState])) {
+    if (/^c/.test(doc.readyState)) {
       doc.detachEvent(onreadystatechange, ol);
       flush();
     }
