@@ -10,7 +10,6 @@
     for (var i = 0, l = fns.length; i < l; i++) {
       fns[i]();
     }
-    testEl = null;
   }
   doc[addEventListener] && doc[addEventListener](domContentLoaded, function fn() {
     doc.removeEventListener(domContentLoaded, fn, f);
