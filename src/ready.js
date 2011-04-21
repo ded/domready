@@ -5,6 +5,8 @@
       addEventListener = 'addEventListener',
       onreadystatechange = 'onreadystatechange';
 
+  /^loade|c/.test(doc.readyState) && (loaded = 1);
+
   function flush() {
     loaded = 1;
     for (var i = 0, l = fns.length; i < l; i++) {

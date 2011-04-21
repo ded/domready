@@ -1,4 +1,4 @@
-require('../build/smoosh').config({
+require('smoosh').config({
   "JAVASCRIPT": {
     "DIST_DIR": "./",
     "ready": ['./src/ready.js']
