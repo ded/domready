@@ -1,4 +1,4 @@
-!function (doc) {
+!function (context, doc) {
   var loaded = 0, fns = [], ol, f = false,
       testEl = doc.createElement('a'),
       domContentLoaded = 'DOMContentLoaded',
@@ -47,8 +47,6 @@
       loaded ? fn() : fns.push(fn);
     };
 
-    (typeof module !== 'undefined') && module.exports ?
-      (module.exports = {domReady: domReady}) :
-      (window.domReady = domReady);
+    context['domReady'] = domReady;
 
-}(document);
+}(this, document);
