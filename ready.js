@@ -1,6 +1,6 @@
 !function (context, doc) {
   var fns = [], ol, f = false,
-      testEl = doc.createElement('a'),
+      testEl = doc.documentElement,
       hack = testEl.doScroll,
       domContentLoaded = 'DOMContentLoaded',
       addEventListener = 'addEventListener',
@@ -24,7 +24,7 @@
     }
   }));
 
-  var domReady = hack ?
+  context['domReady'] = hack ?
     function (fn) {
       self != top ?
         loaded ? fn() : fns.push(fn) :
@@ -40,7 +40,5 @@
     function (fn) {
       loaded ? fn() : fns.push(fn);
     };
-
-  context['domReady'] = domReady;
 
 }(this, document);
