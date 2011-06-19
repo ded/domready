@@ -1,17 +1,15 @@
 !function (context, doc) {
-  var loaded = 0, fns = [], ol, f = false,
+  var fns = [], ol, f = false,
       testEl = doc.createElement('a'),
+      hack = testEl.doScroll,
       domContentLoaded = 'DOMContentLoaded',
       addEventListener = 'addEventListener',
-      onreadystatechange = 'onreadystatechange';
+      onreadystatechange = 'onreadystatechange',
+      loaded = /^loade|c/.test(doc.readyState);
 
-  /^loade|c/.test(doc.readyState) && (loaded = 1);
-
-  function flush() {
+  function flush(i) {
     loaded = 1;
-    for (var i = 0, l = fns.length; i < l; i++) {
-      fns[i]();
-    }
+    while (i = fns.shift()) { i() }
   }
   doc[addEventListener] && doc[addEventListener](domContentLoaded, function fn() {
     doc.removeEventListener(domContentLoaded, fn, f);
@@ -19,34 +17,30 @@
   }, f);
 
 
-  testEl.doScroll && doc.attachEvent(onreadystatechange, (ol = function ol() {
+  hack && doc.attachEvent(onreadystatechange, (ol = function ol() {
     if (/^c/.test(doc.readyState)) {
       doc.detachEvent(onreadystatechange, ol);
       flush();
     }
   }));
 
-  var domReady = testEl.doScroll ?
+  var domReady = hack ?
     function (fn) {
       self != top ?
-        !loaded ?
-          fns.push(fn) :
-          fn() :
-        !function () {
+        loaded ? fn() : fns.push(fn) :
+        function () {
           try {
             testEl.doScroll('left');
           } catch (e) {
-            return setTimeout(function() {
-              domReady(fn);
-            }, 50);
+            return setTimeout(function() { domReady(fn) }, 50);
           }
           fn();
-        }();
+        }()
     } :
     function (fn) {
       loaded ? fn() : fns.push(fn);
     };
 
-    context['domReady'] = domReady;
+  context['domReady'] = domReady;
 
 }(this, document);
