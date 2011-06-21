@@ -1,5 +1,5 @@
 !function (context, doc) {
-  var fns = [], ol, f = false,
+  var fns = [], ol, fn, f = false,
       testEl = doc.documentElement,
       hack = testEl.doScroll,
       domContentLoaded = 'DOMContentLoaded',
@@ -11,13 +11,13 @@
     loaded = 1;
     while (i = fns.shift()) { i() }
   }
-  doc[addEventListener] && doc[addEventListener](domContentLoaded, function fn() {
+  doc[addEventListener] && doc[addEventListener](domContentLoaded, fn = function () {
     doc.removeEventListener(domContentLoaded, fn, f);
     flush();
   }, f);
 
 
-  hack && doc.attachEvent(onreadystatechange, (ol = function ol() {
+  hack && doc.attachEvent(onreadystatechange, (ol = function () {
     if (/^c/.test(doc.readyState)) {
       doc.detachEvent(onreadystatechange, ol);
       flush();
