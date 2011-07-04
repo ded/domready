@@ -32,7 +32,7 @@
           try {
             testEl.doScroll('left');
           } catch (e) {
-            return setTimeout(function() { domReady(fn) }, 50);
+            return setTimeout(function() { context['domReady'](fn) }, 50);
           }
           fn();
         }()
