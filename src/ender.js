@@ -1,4 +1,5 @@
 !function ($) {
+  var domReady = require('domready');
   $.ender({domReady: domReady});
   $.ender({
     ready: function (f) {
