@@ -2,24 +2,26 @@ domReady
 --------
 It's easy. Works like this:
 
-    domReady(function () {
-      // dom is loaded!
-    });
+``` js
+domReady(function () {
+  // dom is loaded!
+})
+```
 
 Browser support
 ---------------
 
-  * IE6,7,8,9
+  * IE6,7,8,9,10
   * Firefox 2,3,4
   * Safari 3,4,5
-  * Chrome 1-10
-  * Opera
+  * Chrome *
+  * Opera *
 
 Building
 --------
 
-    git clone git://github.com/ded/domready.git
-    cd domready
+    git clone git://github.com/ded/domready.git domready
+    cd !$
     git submodule update --init
     make
 
@@ -27,14 +29,22 @@ Including with Ender
 --------------------
 Don't already have [Ender](http://ender.no.de)? Ender relies on [Node](http://nodejs.org), and [NPM](http://npmjs.org). Install it like this:
 
-    npm install ender
+    npm install ender -g
 
 Once you're good with that. Include domready in your package:
 
-    ender -b domready[,a,b,c]
+    ender add domready
 
-With Ender:
+Then use it like this:
 
-    $.domReady(function () {
-      $(document.body).html('<p>boosh</p>');
-    });
+``` js
+$.domReady(function () {
+  $('body').html('<p>boosh</p>')
+})
+
+// or
+
+$(document).ready(function () {
+  $('body').html('<p>boosh</p>')
+})
+```

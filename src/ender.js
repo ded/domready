@@ -1,10 +1,10 @@
 !function ($) {
-  var domReady = require('domready');
-  $.ender({domReady: domReady});
+  var ready = require('domready')
+  $.ender({domReady: ready})
   $.ender({
     ready: function (f) {
-      domReady(f);
-      return this;
+      ready(f)
+      return this
     }
-  }, true);
+  }, true)
 }(ender);
