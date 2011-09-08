@@ -41,7 +41,7 @@
       loaded ? fn() : fns.push(fn);
     };
 
- (typeof module !== 'undefined' && module.exports) ?
+ (typeof module !== 'undefined') ?
     (module.exports = ready) :
     (context['domReady'] = ready);
 

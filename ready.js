@@ -1,5 +1,5 @@
 !function (context, doc) {
-  var fns = [], ol, fn, f = false,
+  var fns = [], ready, ol, fn, f = false,
       testEl = doc.documentElement,
       hack = testEl.doScroll,
       domContentLoaded = 'DOMContentLoaded',
@@ -24,7 +24,7 @@
     }
   }));
 
-  context['domReady'] = hack ?
+  ready = hack ?
     function (fn) {
       self != top ?
         loaded ? fn() : fns.push(fn) :
@@ -32,7 +32,7 @@
           try {
             testEl.doScroll('left');
           } catch (e) {
-            return setTimeout(function() { context['domReady'](fn) }, 50);
+            return setTimeout(function() { ready(fn) }, 50);
           }
           fn();
         }()
@@ -40,5 +40,9 @@
     function (fn) {
       loaded ? fn() : fns.push(fn);
     };
+
+ (typeof module !== 'undefined') ?
+    (module.exports = ready) :
+    (context['domReady'] = ready);
 
 }(this, document);
