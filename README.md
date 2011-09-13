@@ -20,10 +20,11 @@ Browser support
 Building
 --------
 
-    git clone git://github.com/ded/domready.git domready
-    cd !$
-    git submodule update --init
-    make
+    $ git clone git://github.com/ded/domready.git domready
+    $ cd !$
+    $ npm install --dev
+    $ make
+    $ open tests/test.html
 
 Including with Ender
 --------------------

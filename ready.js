@@ -1,48 +1,50 @@
-!function (context, doc) {
-  var fns = [], ready, ol, fn, f = false,
-      testEl = doc.documentElement,
-      hack = testEl.doScroll,
-      domContentLoaded = 'DOMContentLoaded',
-      addEventListener = 'addEventListener',
-      onreadystatechange = 'onreadystatechange',
-      loaded = /^loade|c/.test(doc.readyState);
+!function (name, definition) {
+  if (typeof define == 'function') define(definition)
+  else if (typeof module != 'undefined') module.exports = definition()
+  else this[name] = definition()
+}('domReady', function () {
 
-  function flush(i) {
-    loaded = 1;
-    while (i = fns.shift()) { i() }
+  var fns = [], ready, fn, f = false
+    , doc = document
+    , testEl = doc.documentElement
+    , hack = testEl.doScroll
+    , domContentLoaded = 'DOMContentLoaded'
+    , addEventListener = 'addEventListener'
+    , onreadystatechange = 'onreadystatechange'
+    , loaded = /^loade|c/.test(doc.readyState)
+
+  function flush() {
+    loaded = 1
+    while (fns.shift()()){}
   }
+
   doc[addEventListener] && doc[addEventListener](domContentLoaded, fn = function () {
-    doc.removeEventListener(domContentLoaded, fn, f);
-    flush();
-  }, f);
+    doc.removeEventListener(domContentLoaded, fn, f)
+    flush()
+  }, f)
 
 
-  hack && doc.attachEvent(onreadystatechange, (ol = function () {
+  hack && doc.attachEvent(onreadystatechange, (fn = function () {
     if (/^c/.test(doc.readyState)) {
-      doc.detachEvent(onreadystatechange, ol);
-      flush();
+      doc.detachEvent(onreadystatechange, fn)
+      flush()
     }
-  }));
+  }))
 
-  ready = hack ?
+  return hack ?
     function (fn) {
       self != top ?
         loaded ? fn() : fns.push(fn) :
         function () {
           try {
-            testEl.doScroll('left');
+            testEl.doScroll('left')
           } catch (e) {
-            return setTimeout(function() { ready(fn) }, 50);
+            return setTimeout(function() { ready(fn) }, 50)
           }
-          fn();
+          fn()
         }()
     } :
     function (fn) {
-      loaded ? fn() : fns.push(fn);
-    };
-
- (typeof module !== 'undefined') ?
-    (module.exports = ready) :
-    (context['domReady'] = ready);
-
-}(this, document);
+      loaded ? fn() : fns.push(fn)
+    }
+})
