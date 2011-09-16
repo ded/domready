@@ -13,9 +13,9 @@
     , onreadystatechange = 'onreadystatechange'
     , loaded = /^loade|c/.test(doc.readyState)
 
-  function flush() {
+  function flush(f) {
     loaded = 1
-    while (fns.shift()()){}
+    while (f = fns.shift()){f()}
   }
 
   doc[addEventListener] && doc[addEventListener](domContentLoaded, fn = function () {
