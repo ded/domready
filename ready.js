@@ -1,8 +1,8 @@
 !function (name, definition) {
   if (typeof define == 'function') define(definition)
   else if (typeof module != 'undefined') module.exports = definition()
-  else this[name] = definition()
-}('domReady', function () {
+  else this[name] = this['domReady'] = definition()
+}('domready', function () {
 
   var fns = [], ready, fn, f = false
     , doc = document
