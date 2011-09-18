@@ -31,7 +31,7 @@
     }
   }))
 
-  return hack ?
+  return (ready = hack ?
     function (fn) {
       self != top ?
         loaded ? fn() : fns.push(fn) :
@@ -46,5 +46,5 @@
     } :
     function (fn) {
       loaded ? fn() : fns.push(fn)
-    }
+    })
 })
