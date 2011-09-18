@@ -2,9 +2,9 @@
   if (typeof define == 'function') define(definition)
   else if (typeof module != 'undefined') module.exports = definition()
   else this[name] = this['domReady'] = definition()
-}('domready', function () {
+}('domready', function (ready) {
 
-  var fns = [], ready, fn, f = false
+  var fns = [], fn, f = false
     , doc = document
     , testEl = doc.documentElement
     , hack = testEl.doScroll
@@ -15,7 +15,7 @@
 
   function flush(f) {
     loaded = 1
-    while (f = fns.shift()){f()}
+    while (f = fns.shift()) f()
   }
 
   doc[addEventListener] && doc[addEventListener](domContentLoaded, fn = function () {
@@ -31,7 +31,7 @@
     }
   }))
 
-  return hack ?
+  return (ready = hack ?
     function (fn) {
       self != top ?
         loaded ? fn() : fns.push(fn) :
@@ -46,5 +46,5 @@
     } :
     function (fn) {
       loaded ? fn() : fns.push(fn)
-    }
+    })
 })
