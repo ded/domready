@@ -15,7 +15,8 @@
 
   function flush(f) {
     loaded = 1
-    while (f = fns.shift()) f()
+    while (f = fns.shift())
+      try { f() } catch (e) {}
   }
 
   doc[addEventListener] && doc[addEventListener](domContentLoaded, fn = function () {

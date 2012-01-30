@@ -20,5 +20,6 @@ require('smoosh').config({
     , "laxbreak": true
     , "eqeqeq": false
     , "eqnull": true
+    , "laxcomma": true
   }
 }).run().build().analyze()
