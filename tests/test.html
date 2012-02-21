@@ -5,10 +5,10 @@
     <title>domReady test</title>
     <script src="../src/ready.js"></script>
     <script type="text/javascript">
-      domReady(function () {
-        document.getElementById('title').innerHTML = 'domready';
-        domReady(function () {
-          document.getElementById('title').innerHTML += '✓';
+      domready(function () {
+        document.getElementById('title').innerHTML = 'domready'
+        domready(function () {
+          document.getElementById('title').innerHTML += '✓'
         })
       })
     </script>

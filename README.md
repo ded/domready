@@ -3,7 +3,7 @@ domReady
 It's easy. Works like this:
 
 ``` js
-domReady(function () {
+domready(function () {
   // dom is loaded!
 })
 ```
@@ -11,18 +11,16 @@ domReady(function () {
 Browser support
 ---------------
 
-  * IE6,7,8,9,10
-  * Firefox 2,3,4
-  * Safari 3,4,5
+  * IE6+
+  * Firefox 2+
+  * Safari 3+
   * Chrome *
   * Opera *
 
 Building
 --------
 
-    $ git clone git://github.com/ded/domready.git domready
-    $ cd !$
-    $ npm install --dev
+    $ npm install -dev
     $ make
     $ open tests/test.html
 

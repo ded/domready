@@ -1,3 +1,6 @@
+/*!
+  * domready (c) Dustin Diaz 2012 - License MIT
+  */
 !function (name, definition) {
   if (typeof module != 'undefined') module.exports = definition()
   else if (typeof define == 'function' && typeof define.amd == 'object') define(definition)
@@ -11,7 +14,8 @@
     , domContentLoaded = 'DOMContentLoaded'
     , addEventListener = 'addEventListener'
     , onreadystatechange = 'onreadystatechange'
-    , loaded = /^loade|c/.test(doc.readyState)
+    , readyState = 'readyState'
+    , loaded = /^loade|c/.test(doc[readyState])
 
   function flush(f) {
     loaded = 1
@@ -24,12 +28,12 @@
   }, f)
 
 
-  hack && doc.attachEvent(onreadystatechange, (fn = function () {
-    if (/^c/.test(doc.readyState)) {
+  hack && doc.attachEvent(onreadystatechange, fn = function () {
+    if (/^c/.test(doc[readyState])) {
       doc.detachEvent(onreadystatechange, fn)
       flush()
     }
-  }))
+  })
 
   return (ready = hack ?
     function (fn) {
