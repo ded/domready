@@ -15,7 +15,7 @@
     , addEventListener = 'addEventListener'
     , onreadystatechange = 'onreadystatechange'
     , readyState = 'readyState'
-    , loaded = /^loade|c/.test(doc[readyState])
+    , loaded = /^loade|^c/.test(doc[readyState])
 
   function flush(f) {
     loaded = 1
