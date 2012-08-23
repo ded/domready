@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/ded/domready.png)](http://travis-ci.org/ded/domready)
 domReady
 --------
 It's easy. Works like this:
