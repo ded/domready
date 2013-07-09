@@ -15,7 +15,7 @@
     , addEventListener = 'addEventListener'
     , onreadystatechange = 'onreadystatechange'
     , readyState = 'readyState'
-    , loadedRgx = /^loaded|^c/ : /^loade|c/
+    , loadedRgx = /^loaded|^c/
     , loaded = loadedRgx.test(doc[readyState])
 
   function flush(f) {
