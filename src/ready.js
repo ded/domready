@@ -1,5 +1,5 @@
 /*!
-  * domready (c) Dustin Diaz 2012 - License MIT
+  * domready (c) Dustin Diaz 2014 - License MIT
   */
 !function (name, definition) {
   if (typeof module != 'undefined') module.exports = definition()
