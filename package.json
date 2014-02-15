@@ -1,6 +1,6 @@
 {
   "name": "domready",
-  "description": "bullet proof DOM ready method",
+  "description": "modern domready",
   "version": "1.0.0",
   "homepage": "https://github.com/ded/domready",
   "author": "Dustin Diaz <dustin@dustindiaz.com> (http://dustindiaz.com)",
