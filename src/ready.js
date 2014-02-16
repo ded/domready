@@ -5,13 +5,13 @@
   if (typeof module != 'undefined') module.exports = definition()
   else if (typeof define == 'function' && typeof define.amd == 'object') define(definition)
   else this[name] = definition()
-}('domready', function (ready) {
+}('domready', function () {
 
   var fns = [], fn, f = false
     , doc = document
     , domContentLoaded = 'DOMContentLoaded'
     , onreadystatechange = 'onreadystatechange'
-    , loaded = /^loaded|c/.test(doc.readyState)
+    , loaded = /^loaded|^c/.test(doc.readyState)
 
   function flush(f) {
     loaded = 1
