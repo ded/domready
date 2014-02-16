@@ -5,7 +5,7 @@
   if (typeof module != 'undefined') module.exports = definition()
   else if (typeof define == 'function' && typeof define.amd == 'object') define(definition)
   else this[name] = definition()
-}('domready', function (ready) {
+}('domready', function () {
 
   var fns = [], fn, f = false
     , doc = document
