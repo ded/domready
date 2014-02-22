@@ -14,14 +14,10 @@
     , domContentLoaded = 'DOMContentLoaded'
     , loaded = /^loaded|^c/.test(doc.readyState)
 
-  function flush (fn) {
-    loaded = 1
-    while (fn = fns.shift()) fn()
-  }
-
   doc.addEventListener(domContentLoaded, listener = function () {
     doc.removeEventListener(domContentLoaded, listener)
-    flush()
+    loaded = 1
+    while (listener = fns.shift()) listener()
   })
 
   return function (fn) {
