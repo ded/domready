@@ -12,8 +12,9 @@
   var fns = [], listener
     , doc = document
     , domContentLoaded = 'DOMContentLoaded'
-    , loaded = /^loaded|^c/.test(doc.readyState)
+    , loaded = /^loaded|^i|^c/.test(doc.readyState)
 
+  if (!loaded)
   doc.addEventListener(domContentLoaded, listener = function () {
     doc.removeEventListener(domContentLoaded, listener)
     loaded = 1
