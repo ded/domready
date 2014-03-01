@@ -9,6 +9,10 @@
 
 }('domready', function () {
 
+  if (typeof document === 'undefined') {
+    return function () {};
+  }
+
   var fns = [], listener
     , doc = document
     , domContentLoaded = 'DOMContentLoaded'
