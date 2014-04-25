@@ -3,11 +3,17 @@
   */
 !function (name, definition) {
 
-  if (typeof module != 'undefined') module.exports = definition()
+  if (typeof exports !== 'undefined' && this.exports !== exports) module.exports = definition(true)
   else if (typeof define == 'function' && typeof define.amd == 'object') define(definition)
   else this[name] = definition()
 
-}('domready', function () {
+}('domready', function (isNode) {
+
+  if (true === isNode) {
+    var ret = function() {};
+    ret.nodom = true;
+    return ret;
+  }
 
   var fns = [], listener
     , doc = document
@@ -25,4 +31,4 @@
     loaded ? fn() : fns.push(fn)
   }
 
-});
+})
