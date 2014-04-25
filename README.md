@@ -59,3 +59,11 @@ $(document).ready(function () {
   $('body').html('<p>boosh</p>')
 })
 ```
+
+### Using in NodeJS
+
+When writing tests, you might want to modify your test code to check for `nodom` property of the exported module. That way you can suppress tests that are dependent on DOM.
+
+``` js
+require('domready').nodom
+``` 
