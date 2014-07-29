@@ -1,0 +1,22 @@
+{
+  "name": "domready",
+  "version": "1.0.5",
+  "homepage": "https://github.com/ded/domready",
+  "authors": [
+    "Dustin Diaz <dustin@dustindiaz.com> (http://dustindiaz.com)"
+  ],
+  "description": "modern domready",
+  "main": "ready.js",
+  "keywords": [
+    "ender",
+    "domready",
+    "dom"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "make",
+    "node_modules",
+    "tests"
+  ]
+}
