@@ -11,8 +11,10 @@
 
   var fns = [], listener
     , doc = document
+    , hack = doc.documentElement.doScroll
     , domContentLoaded = 'DOMContentLoaded'
-    , loaded = /^loaded|^c/.test(doc.readyState)
+    , loaded = (hack ? /^loaded|^c/ : /^loaded|^i|^c/).test(doc.readyState)
+
 
   if (!loaded)
   doc.addEventListener(domContentLoaded, listener = function () {
