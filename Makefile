@@ -1,2 +1,2 @@
 boosh:
-	node make/build.js
+	node make/build.js && echo ";" >> ./ready.min.js
