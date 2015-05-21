@@ -3,10 +3,10 @@
   "description": "modern domready",
   "type": "component",
   "homepage": "https://github.com/ded/domready",
-  "author": [
+  "authors": [
     {
       "name": "Dustin Diaz",
-      "mail": "dustin@dustindiaz.com",
+      "email": "dustin@dustindiaz.com",
       "homepage": "http://dustindiaz.com"
     }
   ],
