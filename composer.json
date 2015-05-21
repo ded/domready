@@ -1,0 +1,29 @@
+{
+  "name": "ded/domready",
+  "description": "modern domready",
+  "type": "component",
+  "homepage": "https://github.com/ded/domready",
+  "author": [
+    {
+      "name": "Dustin Diaz",
+      "mail": "dustin@dustindiaz.com",
+      "homepage": "http://dustindiaz.com"
+    }
+  ],
+  "keywords": [
+    "ender",
+    "domready",
+    "dom"
+  ],
+  "license": "MIT",
+  "extra": {
+    "component": {
+      "scripts": [
+        "ready.js"
+      ],
+      "files": [
+        "ready.min.js"
+      ]
+    }
+  }
+}
