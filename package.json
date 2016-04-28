@@ -17,5 +17,6 @@
   },
   "devDependencies": {
     "smoosh": ">=0.3.0"
-  }
+  },
+  "license": "MIT"
 }
