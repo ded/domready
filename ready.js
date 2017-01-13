@@ -7,9 +7,9 @@
   else if (typeof define == 'function' && typeof define.amd == 'object') define(definition)
   else this[name] = definition()
 
-}('domready', function (isNode) {
+}('domready', function () {
 
-  if (true === isNode) {
+  if (!document.addEventListener) {
     var ret = function() {};
     ret.nodom = true;
     return ret;
