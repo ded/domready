@@ -9,6 +9,7 @@
     "domready",
     "dom"
   ],
+  "license": "MIT",
   "main": "./ready.js",
   "ender": "./src/ender.js",
   "repository": {
