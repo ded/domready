@@ -1,0 +1,36 @@
+{
+  "name": "domready",
+  "description": "modern domready",
+  "homepage": "https://github.com/ded/domready",
+  "authors": [
+    "Dustin Diaz <dustin@dustindiaz.com> (http://dustindiaz.com)"
+  ],
+  "keywords": [
+    "ender",
+    "domready",
+    "dom"
+  ],
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "main": "./ready.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ded/domready.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ded/domready/issues"
+  },
+  "license": "MIT",
+  "ignore": [
+    ".*",
+    "component.json",
+    "package.json",
+    "Makefile",
+    "make",
+    "src",
+    "tests"
+  ]
+}
