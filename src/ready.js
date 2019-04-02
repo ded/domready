@@ -1,6 +1,6 @@
 /*!
   * domready (c) Dustin Diaz 2014 - License MIT
-  * ie10 fix - Mikael Kristiannsson 2019
+  * ie10 fix - Mikael Kristiansson 2019
   */
 !function (name, definition) {
 
