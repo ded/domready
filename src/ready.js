@@ -1,5 +1,6 @@
 /*!
   * domready (c) Dustin Diaz 2014 - License MIT
+  * ie10 fix - Mikael Kristiansson 2019
   */
 !function (name, definition) {
 
@@ -8,10 +9,14 @@
   else this[name] = definition()
 
 }('domready', function () {
+  var ie10 = false;
+  if (navigator.appVersion.indexOf("MSIE 10") !== -1) {
+    ie10 = true;
+  }
 
   var fns = [], listener
     , doc = typeof document === 'object' && document
-    , hack = doc && doc.documentElement.doScroll
+    , hack = ie10 ? doc.documentElement.doScroll() : doc.documentElement.doScroll
     , domContentLoaded = 'DOMContentLoaded'
     , loaded = doc && (hack ? /^loaded|^c/ : /^loaded|^i|^c/).test(doc.readyState)
 
