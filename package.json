@@ -1,8 +1,8 @@
 {
-  "name": "domready-loaded",
+  "name": "domready",
   "description": "modern domready",
-  "version": "1.0.9",
-  "homepage": "https://github.com/mikaelkristiansson/domready",
+  "version": "1.0.8",
+  "homepage": "https://github.com/ded/domready",
   "author": "Dustin Diaz <dustin@dustindiaz.com> (http://dustindiaz.com)",
   "keywords": [
     "ender",
@@ -13,7 +13,7 @@
   "ender": "./src/ender.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mikaelkristiansson/domready.git"
+    "url": "https://github.com/ded/domready.git"
   },
   "devDependencies": {
     "smoosh": ">=0.3.0"
